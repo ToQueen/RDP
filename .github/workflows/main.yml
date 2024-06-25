@@ -22,4 +22,4 @@ jobs:
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "Hanabinime@#$" -Force)
     - name: Create Tunnel
-      run: .\ngrok\ngrok.exe tcp --region=jp --remote-addr=1.tcp.jp.ngrok.io:21501 22
+      run: .\ngrok\ngrok.exe tcp --region=jp --remote-addr=1.tcp.jp.ngrok.io:21506 22
