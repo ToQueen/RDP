@@ -19,7 +19,7 @@ jobs:
     - name: Enable TS
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "ra_2iNQ3hSTQNtTcWsn5j1FUlfJKO2" -Value 0
     - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-    - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
-    - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+    - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' --remote-addr=1.tcp.jp.ngrok.io:21501 -Value 1
+    - run: Set-LocalUser -Name "hanabinime" -Password (ConvertTo-SecureString -AsPlainText "Hanabinime@#$" -Force)
     - name: Create Tunnel
-      run: .\ngrok\ngrok.exe tcp 3389
+      run: .\ngrok\ngrok.exe tcp 21501
